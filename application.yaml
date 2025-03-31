@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/saisanthosh934/santhosh-app-config.git
     targetRevision: main
-    path: kubernetes-manifests
+    path: kubernetes-manifest
   destination:
     server: https://kubernetes.default.svc
     namespace: default
