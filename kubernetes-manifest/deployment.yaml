@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image:  saisanthosh934/sample-app:v2
+        image:  saisanthosh934/sample-app:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 5000

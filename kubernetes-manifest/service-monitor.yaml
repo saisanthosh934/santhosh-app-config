@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: python-app-monitor
+  labels:
+    release: prometheus  # Must match Prometheus' serviceMonitorSelector
+    app: python-app      # Identifies your application
+spec:
+  selector:
+    matchLabels:
+      app: python-app    # Must match your Kubernetes Service labels
+  endpoints:
+  - port: http          # Main application port (name must match Service)
+    path: /             # Root endpoint
+    interval: 15s       # Check less frequently than metrics
+    
+  - port: http          # Metrics endpoint (same port, different path)
+    path: /metrics
+    interval: 15s       # Standard metrics scrape interval
+    
+  - port: http          # Health check endpoint
+    path: /health
+    interval: 20s
