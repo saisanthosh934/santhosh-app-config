@@ -14,9 +14,9 @@ spec:
       labels:
         app: python-app
       annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "5000"
-        prometheus.io/path: "/metrics"
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '5000'
+        prometheus.io/path: /metrics
     spec:
       containers:
       - name: python-app
@@ -41,11 +41,11 @@ spec:
           periodSeconds: 10
         resources:
           requests:
-            cpu: "100m"
-            memory: "128Mi"
+            cpu: 100m
+            memory: 128Mi
           limits:
-            cpu: "500m"
-            memory: "256Mi"
+            cpu: 500m
+            memory: 256Mi
       volumes:
       - name: app-storage
         persistentVolumeClaim:
