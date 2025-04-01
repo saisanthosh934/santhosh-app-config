@@ -3,14 +3,20 @@ kind: ServiceMonitor
 metadata:
   name: python-app-monitor
   labels:
-    release: prometheus  # Must match Prometheus' serviceMonitorSelector
-    app: python-app      # Identifies your application
+    release: prometheus
 spec:
   selector:
     matchLabels:
-      app: python-app    # Must match your Kubernetes Service labels
+      app: python-app
   endpoints:
-  - port: http          # Main application port (name must match Service)
-    path: /metrics             # Root endpoint
-    interval: 15s       # Check less frequently than metrics
- 
+  - port: http          # Remember to keep same name for port in service.yaml-IMPORTANT
+    path: /metrics      
+    interval: 15s
+    scheme: http
+    relabelings:
+    - action: replace
+      sourceLabels: [__meta_kubernetes_service_name]
+      targetLabel: job
+    - action: replace
+      sourceLabels: [__meta_kubernetes_namespace]
+      targetLabel: namespace

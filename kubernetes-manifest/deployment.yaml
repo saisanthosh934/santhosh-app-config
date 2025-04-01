@@ -13,14 +13,10 @@ spec:
     metadata:
       labels:
         app: python-app
-      annotations:
-        prometheus.io/scrape: 'true'
-        prometheus.io/port: '5000'
-        prometheus.io/path: /metrics
     spec:
       containers:
       - name: python-app
-        image:  saisanthosh934/santhosh-sample-app:54
+        image:  saisanthosh934/santhosh-sample-app:1
         imagePullPolicy: Always
         ports:
         - containerPort: 5000

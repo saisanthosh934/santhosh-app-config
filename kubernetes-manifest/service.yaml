@@ -8,7 +8,7 @@ spec:
   selector:
     app: python-app
   ports:
-    - name: http       # ← THIS IS CRUCIAL
+    - name: http       
       protocol: TCP
       port: 80
       targetPort: 5000
