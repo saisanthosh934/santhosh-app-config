@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: saisanthosh934/santhosh-sample-app:56
+        image: saisanthosh934/santhosh-sample-app:57
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
